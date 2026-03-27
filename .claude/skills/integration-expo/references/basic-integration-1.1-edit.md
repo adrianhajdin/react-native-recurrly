@@ -28,7 +28,7 @@ Remember the documentation and example project resources you were provided at th
 Status to report in this phase:
 
 - Inserting PostHog capture code
-- A status message for each file whose edits you are planning, including a high level summary of changes
+- A status message for each file whose edits you are planning, including a high-level summary of changes
 - A status message for each file you have edited
 
 

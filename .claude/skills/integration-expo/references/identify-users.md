@@ -10,7 +10,7 @@ To link events to specific users, call `identify`:
 
 PostHog AI
 
-### Web
+## Web
 
 ```javascript
 posthog.identify(
@@ -19,7 +19,7 @@ posthog.identify(
 );
 ```
 
-### Android
+## Android
 
 ```kotlin
 PostHog.identify(
@@ -32,14 +32,14 @@ PostHog.identify(
 )
 ```
 
-### iOS
+## iOS
 
 ```swift
 PostHogSDK.shared.identify("distinct_id", // Replace "distinct_id" with your user's unique identifier
                            userProperties: ["name": "Max Hedgehog", "email": "max@hedgehogmail.com"]) // optional: set additional person properties
 ```
 
-### React Native
+## React Native
 
 ```jsx
 posthog.identify('distinct_id', { // Replace "distinct_id" with your user's unique identifier
@@ -48,7 +48,7 @@ posthog.identify('distinct_id', { // Replace "distinct_id" with your user's uniq
 })
 ```
 
-### Dart
+## Dart
 
 ```dart
 await Posthog().identify(
@@ -168,7 +168,7 @@ See our [person properties docs](/docs/product-analytics/person-properties.md) f
 
 ### 5\. Use deep links between platforms
 
-We recommend you call `identify` [as soon as you're able](#1-call-identify-as-soon-as-youre-able), typically when a user signs up or logs in.
+We recommend you call `identify` [as soon as you're able](#call-identify-as-soon-as-youre-able-to), typically when a user signs up or logs in.
 
 This doesn't work if one or both platforms are unauthenticated. Some examples of such cases are:
 

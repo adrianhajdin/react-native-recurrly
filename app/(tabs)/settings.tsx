@@ -13,8 +13,14 @@ const Settings = () => {
 
     const handleSignOut = async () => {
         posthog.capture('user_signed_out');
-        posthog.reset();
-        await signOut();
+        try {
+            await signOut();
+            // Only reset analytics after successful sign-out
+            posthog.reset();
+        } catch (error) {
+            console.error('Sign-out failed:', error);
+            // Don't reset analytics if sign-out failed
+        }
     };
 
     const displayName = user?.firstName || user?.fullName || user?.emailAddresses[0]?.emailAddress || 'User';

@@ -38,5 +38,10 @@
     "event": "subscription_details_viewed",
     "description": "User opens the subscription detail screen",
     "file": "app/subscriptions/[id].tsx"
+  },
+  {
+    "event": "subscription_created",
+    "description": "User creates a new subscription",
+    "file": "app/(tabs)/index.tsx"
   }
 ]

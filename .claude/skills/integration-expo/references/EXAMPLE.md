@@ -24,7 +24,7 @@ A React Native Expo app demonstrating PostHog product analytics integration with
 
 ## Project Structure
 
-```
+```text
 basics/expo/
 ├── app/                          # Expo Router screens (file-based routing)
 │   ├── _layout.tsx               # Root layout with PostHogProvider + AuthProvider
@@ -248,7 +248,7 @@ POSTHOG_HOST=https://us.i.posthog.com
 
 ## .npmrc
 
-```
+```ini
 legacy-peer-deps=true
 
 ```

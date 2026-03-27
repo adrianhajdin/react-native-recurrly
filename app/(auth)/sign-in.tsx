@@ -98,6 +98,13 @@ const SignIn = () => {
                         return;
                     }
 
+                    // Track successful sign-in after verification
+                    posthog.identify(emailAddress, {
+                        $set: { email: emailAddress },
+                        $set_once: { first_sign_in_date: new Date().toISOString() },
+                    });
+                    posthog.capture('user_signed_in', { email: emailAddress });
+
                     const url = decorateUrl('/(tabs)');
                     if (url.startsWith('http')) {
                         // Only use window.location on web platform

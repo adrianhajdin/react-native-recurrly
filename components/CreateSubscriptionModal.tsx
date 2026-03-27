@@ -29,12 +29,22 @@ const CreateSubscriptionModal = ({ visible, onClose, onSubmit }: CreateSubscript
   const [frequency, setFrequency] = useState<Frequency>('Monthly');
   const [category, setCategory] = useState<Category>('Other');
 
-  const isValidForm = name.trim() !== '' && parseFloat(price) > 0;
+  // Improved price validation
+  const isValidPrice = () => {
+    const trimmedPrice = price.trim();
+    if (!trimmedPrice) return false;
+    // Strict numeric pattern check
+    if (!/^\s*[+-]?(\d+(\.\d+)?|\.\d+)\s*$/.test(trimmedPrice)) return false;
+    const numValue = Number(trimmedPrice);
+    return Number.isFinite(numValue) && numValue > 0;
+  };
+
+  const isValidForm = name.trim() !== '' && isValidPrice();
 
   const handleSubmit = () => {
     if (!isValidForm) return;
 
-    const priceValue = parseFloat(price);
+    const priceValue = Number(price.trim());
     const now = dayjs();
     const renewalDate = frequency === 'Monthly' ? now.add(1, 'month') : now.add(1, 'year');
 

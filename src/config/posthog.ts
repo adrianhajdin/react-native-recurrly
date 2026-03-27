@@ -1,9 +1,13 @@
 import PostHog from 'posthog-react-native'
 import Constants from 'expo-constants'
 
-const apiKey = Constants.expoConfig?.extra?.posthogProjectToken as string | undefined
-const host = Constants.expoConfig?.extra?.posthogHost as string | undefined
-const isPostHogConfigured = !!apiKey && apiKey !== 'phc_your_project_token_here'
+const rawApiKey = Constants.expoConfig?.extra?.posthogProjectToken as string | undefined
+const rawHost = Constants.expoConfig?.extra?.posthogHost as string | undefined
+
+// Trim and normalize API key and host
+const apiKey = rawApiKey?.trim()
+const host = rawHost?.trim()
+const isPostHogConfigured = !!apiKey && apiKey !== '' && apiKey !== 'phc_your_project_token_here'
 
 if (!isPostHogConfigured) {
   console.warn(
